@@ -37,10 +37,11 @@
 
   <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
-  <script type="module" crossorigin src="/assets/editor.C8F40xXk.js"></script>
+  <script type="module" crossorigin src="/assets/editor.B9w_Hkie.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/pixel.CTdmvz-a.js">
   <link rel="modulepreload" crossorigin href="/assets/codemirror.DO_djx_r.js">
-  <link rel="modulepreload" crossorigin href="/assets/scc.Dvg64kKt.js">
+  <link rel="modulepreload" crossorigin href="/assets/python.CCAAO0-i.js">
+  <link rel="modulepreload" crossorigin href="/assets/scc.CvI6WV15.js">
   <link rel="modulepreload" crossorigin href="/assets/bootstrap.esm.CkDf0L-y.js">
   <link rel="stylesheet" crossorigin href="/assets/pixel.KfArhRXn.css">
   <link rel="stylesheet" crossorigin href="/assets/codemirror.BglBigAQ.css">
@@ -200,12 +201,18 @@
   </div>
   <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-        .then(function(registration) {
-            console.log('Service Worker registered with scope:', registration.scope);
-        }).catch(function(error) {
-            console.log('Service Worker registration failed:', error);
-        });
+        navigator.serviceWorker.register('./sw.js')
+            .then(function(registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('Service Worker registration failed:', error);
+            });
+            navigator.serviceWorker.register('./coi-serviceworker.js')
+            .then(function(registration) {
+                console.log('CROSS ORGIN HEADER Service Worker registered with scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('CROSS ORGIN HEADER Service Worker registration failed:', error);
+            });
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>

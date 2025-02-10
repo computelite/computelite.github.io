@@ -39,10 +39,10 @@
    
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
     
-  <script type="module" crossorigin src="/assets/sqlEditor.DCNmYsma.js"></script>
+  <script type="module" crossorigin src="/assets/sqlEditor.0rWXBoOf.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/pixel.CTdmvz-a.js">
   <link rel="modulepreload" crossorigin href="/assets/flatpickr.min.Cwadf_CE.js">
-  <link rel="modulepreload" crossorigin href="/assets/scc.Dvg64kKt.js">
+  <link rel="modulepreload" crossorigin href="/assets/scc.CvI6WV15.js">
   <link rel="modulepreload" crossorigin href="/assets/bootstrap.esm.CkDf0L-y.js">
   <link rel="modulepreload" crossorigin href="/assets/codemirror.DO_djx_r.js">
   <link rel="stylesheet" crossorigin href="/assets/pixel.KfArhRXn.css">
@@ -432,12 +432,17 @@
 
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-            navigator.serviceWorker.register('/coi-serviceworker.js')
+            navigator.serviceWorker.register('./sw.js')
             .then(function(registration) {
                 console.log('Service Worker registered with scope:', registration.scope);
             }).catch(function(error) {
                 console.log('Service Worker registration failed:', error);
+            });
+            navigator.serviceWorker.register('./coi-serviceworker.js')
+            .then(function(registration) {
+                console.log('CROSS ORGIN HEADER Service Worker registered with scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('CROSS ORGIN HEADER Service Worker registration failed:', error);
             });
         }
       </script>

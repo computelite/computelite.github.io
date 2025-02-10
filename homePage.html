@@ -39,9 +39,9 @@
    
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
-  <script type="module" crossorigin src="/assets/home.DybiyhCu.js"></script>
+  <script type="module" crossorigin src="/assets/home.D67-vqv9.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/pixel.CTdmvz-a.js">
-  <link rel="modulepreload" crossorigin href="/assets/scc.Dvg64kKt.js">
+  <link rel="modulepreload" crossorigin href="/assets/scc.CvI6WV15.js">
   <link rel="modulepreload" crossorigin href="/assets/bootstrap.esm.CkDf0L-y.js">
   <link rel="stylesheet" crossorigin href="/assets/pixel.KfArhRXn.css">
   <link rel="stylesheet" crossorigin href="/assets/home.BCDOp-mO.css">
@@ -171,7 +171,12 @@
             
             <div class="d-flex align-items-center">
                 <div class="nav-link align-items-lg-center">
-                    <a id="shareBtn" class="btn btn-tertiary blink" aria-expanded="false">
+                    <a id="notebookBtn" class="btn btn-tertiary" aria-expanded="false">
+                        <i class="fa-solid fa-book" aria-hidden="true" style="font-size: 20px;" ></i>
+                    </a>
+                </div>
+                <div class="nav-link align-items-lg-center">
+                    <a id="shareBtn" class="btn btn-tertiary blink ms-3" aria-expanded="false">
                         <i class="far fa-file-code" aria-hidden="true" style="font-size: 20px;" ></i>
                     </a>
                 </div>
@@ -441,13 +446,18 @@
 </footer>
 <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-        navigator.serviceWorker.register('/coi-serviceworker.js')
-        .then(function(registration) {
-            console.log('Service Worker registered with scope:', registration.scope);
-        }).catch(function(error) {
-            console.log('Service Worker registration failed:', error);
-        });
+        navigator.serviceWorker.register('./sw.js')
+            .then(function(registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('Service Worker registration failed:', error);
+            });
+            navigator.serviceWorker.register('./coi-serviceworker.js')
+            .then(function(registration) {
+                console.log('CROSS ORGIN HEADER Service Worker registered with scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('CROSS ORGIN HEADER Service Worker registration failed:', error);
+            });
     }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
