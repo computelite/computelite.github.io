@@ -4,11 +4,6 @@
 <head>
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistrations().then(registrations => {
-                for (const registration of registrations) {
-                    registration.unregister();
-                } 
-            });
             navigator.serviceWorker.register('./coi-serviceworker.js')
             .then(function(registration) {
                 console.log('CROSS ORGIN HEADER Service Worker registered with scope:', registration.scope);
@@ -51,11 +46,11 @@
 
 
 
-  <script type="module" crossorigin src="./assets/notebook.0QDvQg9H.js"></script>
+  <script type="module" crossorigin src="./assets/notebook.6MckIMVI.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/pixel.PHV1U_RE.js">
   <link rel="modulepreload" crossorigin href="./assets/scc.B0eRQJs1.js">
-  <link rel="modulepreload" crossorigin href="./assets/codemirror.BeiFTLV5.js">
-  <link rel="modulepreload" crossorigin href="./assets/python.CRxt_0kd.js">
+  <link rel="modulepreload" crossorigin href="./assets/codemirror.BZLbZMlj.js">
+  <link rel="modulepreload" crossorigin href="./assets/python.C6Sa1GUw.js">
   <link rel="modulepreload" crossorigin href="./assets/index.browser.vcSNLBTf.js">
   <link rel="stylesheet" crossorigin href="./assets/pixel.D2isS4xr.css">
   <link rel="stylesheet" crossorigin href="./assets/codemirror.BglBigAQ.css">
