@@ -2,16 +2,6 @@
 <html lang="en">
 
 <head>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./coi-serviceworker.js')
-            .then(function(registration) {
-                console.log('CROSS ORGIN HEADER Service Worker registered with scope:', registration.scope);
-            }).catch(function(error) {
-                console.log('CROSS ORGIN HEADER Service Worker registration failed:', error);
-            });
-        }
-    </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
     <title>Compute Lite NoteBook</title>
@@ -46,10 +36,10 @@
 
 
 
-  <script type="module" crossorigin src="./assets/notebookJS.CJEUkrRH.js"></script>
+  <script type="module" crossorigin src="./assets/notebookJS.BZozomTc.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/pixel.PHV1U_RE.js">
   <link rel="modulepreload" crossorigin href="./assets/scc.B0eRQJs1.js">
-  <link rel="modulepreload" crossorigin href="./assets/codemirror.BZLbZMlj.js">
+  <link rel="modulepreload" crossorigin href="./assets/codemirror.BeiFTLV5.js">
   <link rel="modulepreload" crossorigin href="./assets/index.browser.vcSNLBTf.js">
   <link rel="stylesheet" crossorigin href="./assets/pixel.D2isS4xr.css">
   <link rel="stylesheet" crossorigin href="./assets/codemirror.BglBigAQ.css">
@@ -105,6 +95,16 @@
             </div>
         </footer>
     </body>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./coi-serviceworker.js')
+            .then(function(registration) {
+                console.log('CROSS ORGIN HEADER Service Worker registered with scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('CROSS ORGIN HEADER Service Worker registration failed:', error);
+            });
+        }
+    </script>
 
     
 
