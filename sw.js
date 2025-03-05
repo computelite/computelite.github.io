@@ -43,7 +43,15 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       caches.match(event.request).then(response => {
         if (response) {
-            return response; // Serve from cache
+            const newHeaders = new Headers(response.headers);
+            newHeaders.set("Cross-Origin-Embedder-Policy", "require-corp");
+            newHeaders.set("Cross-Origin-Opener-Policy", "same-origin");
+
+            return new Response(response.body, {
+                status: response.status,
+                statusText: response.statusText,
+                headers: newHeaders,
+            });
         }
         return fetch(event.request).then(networkResponse => {
             return caches.open(dynamicCacheName).then(cache => {
@@ -51,7 +59,15 @@ self.addEventListener('fetch', event => {
                 event.request.url.indexOf(hostDomain) > -1){
                   cache.put(event.request, networkResponse.clone());
                 }
-                return networkResponse;
+                const newHeaders = new Headers(networkResponse.headers);
+                newHeaders.set("Cross-Origin-Embedder-Policy", "require-corp");
+                newHeaders.set("Cross-Origin-Opener-Policy", "same-origin");
+
+                return new Response(networkResponse.body, {
+                    status: networkResponse.status,
+                    statusText: networkResponse.statusText,
+                    headers: newHeaders,
+                });
             })
             
         })
