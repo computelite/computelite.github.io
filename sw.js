@@ -43,6 +43,9 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       caches.match(event.request).then(response => {
         if (response) {
+          if (response.status === 0) {
+            return response;
+            }
             const newHeaders = new Headers(response.headers);
             newHeaders.set("Cross-Origin-Embedder-Policy", "require-corp");
             newHeaders.set("Cross-Origin-Opener-Policy", "same-origin");
@@ -58,6 +61,9 @@ self.addEventListener('fetch', event => {
                 if (event.request.method === "GET" && event.request.url.indexOf('https') === 0 && 
                 event.request.url.indexOf(hostDomain) > -1){
                   cache.put(event.request, networkResponse.clone());
+                }
+                if (networkResponse.status === 0) {
+                  return networkResponse;
                 }
                 const newHeaders = new Headers(networkResponse.headers);
                 newHeaders.set("Cross-Origin-Embedder-Policy", "require-corp");
