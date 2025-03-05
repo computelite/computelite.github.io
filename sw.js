@@ -1,5 +1,5 @@
-const cacheName = 'v6';
-const dynamicCacheName = 'd6';
+const cacheName = 'v7';
+const dynamicCacheName = 'd7';
 
 const cachedFiles = [
     './',
@@ -22,15 +22,18 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
     const cacheWhitelist = [cacheName];
     event.waitUntil(
+      Promise.all([
+      self.clients.claim(),
       caches.keys().then(cacheNames => {
         return Promise.all(
-          cacheNames.map(cache => {
-            if (!cacheWhitelist.includes(cache)) {
-              return caches.delete(cache);
-            }
-          })
-        );
-      })
+            cacheNames.map(cache => {
+              if (!cacheWhitelist.includes(cache)) {
+                return caches.delete(cache);
+              }
+            })
+          );
+        })
+      ])
     );
 });
   
@@ -60,7 +63,6 @@ self.addEventListener('fetch', event => {
             return caches.open(dynamicCacheName).then(cache => {
                 if (event.request.method === "GET" && event.request.url.indexOf('https') === 0 && 
                 event.request.url.indexOf(hostDomain) > -1){
-                  console.log(event.request.url);
                   cache.put(event.request, networkResponse.clone());
                 }
                 if (networkResponse.status === 0) {
