@@ -51,11 +51,10 @@
 
 
 
-  <script type="module" crossorigin src="./assets/notebook.0QDvQg9H.js"></script>
+  <script type="module" crossorigin src="./assets/notebookJS.BZozomTc.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/pixel.PHV1U_RE.js">
   <link rel="modulepreload" crossorigin href="./assets/scc.B0eRQJs1.js">
   <link rel="modulepreload" crossorigin href="./assets/codemirror.BeiFTLV5.js">
-  <link rel="modulepreload" crossorigin href="./assets/python.CRxt_0kd.js">
   <link rel="modulepreload" crossorigin href="./assets/index.browser.vcSNLBTf.js">
   <link rel="stylesheet" crossorigin href="./assets/pixel.D2isS4xr.css">
   <link rel="stylesheet" crossorigin href="./assets/codemirror.BglBigAQ.css">
@@ -69,6 +68,7 @@
         <div class="container" style="max-width: none;">
             <a class="navbar-logo" href="./homePage.html" style="font-weight: 600;">Compute <b>Lite</b></a>
             <a class="navbar-el ms-4" href="./homePage.html" style="font-weight: 600;">Playground</a>
+            <a type="button" class="btn btn-sm ms-4" id="hideCode">Hide Code</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -91,36 +91,7 @@
             </div>
         </div>
         <computelite-notebook>
-            <main id="cellContainer" class="cells-container">
-                
-                <!-- <computelite-cell tabindex="0" class="cell-grid cell-container celltype-python">
-                    <div class="cell-controls cell-controls-left cell-controls-left-top">
-                        
-                        <button class="btn cell-controls-button py-1" title="Run Cell">
-                            <span class="fa-regular fa-play-circle" style="font-size: 16px"></span>
-                        </button>
-                    </div>
-                    <div class="cell-top flush">
-                        <computelite-text-editor>
-                            
-                            <div id="sampleId3" class="computelite-text-editor">
-                                
-                            </div>
-                        </computelite-text-editor>
-                    </div>
-                    <div class="cell-bottom">
-                        <computelite-output>
-                            <div id="outputTxt" class="sidebar-inner px-4 py-2">
-                                <div>anc ssm sksn sksm ams</div>
-                                <div>anc ssm sksn sksm ams</div>
-                                <div>anc ssm sksn sksm ams</div>
-                            </div>
-                        </computelite-output>
-
-                    </div>
-                    
-                </computelite-cell>  -->
-                
+            <main id="cellContainer" class="cells-container">                
             </main>
         </computelite-notebook>
         <footer class="computelite-notebook-footer line-grid">
