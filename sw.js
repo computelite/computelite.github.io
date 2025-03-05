@@ -60,6 +60,7 @@ self.addEventListener('fetch', event => {
             return caches.open(dynamicCacheName).then(cache => {
                 if (event.request.method === "GET" && event.request.url.indexOf('https') === 0 && 
                 event.request.url.indexOf(hostDomain) > -1){
+                  console.log(event.request.url);
                   cache.put(event.request, networkResponse.clone());
                 }
                 if (networkResponse.status === 0) {
