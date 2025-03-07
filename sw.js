@@ -1,5 +1,5 @@
-const cacheName = 'v0';
-const dynamicCacheName = 'd0';
+const cacheName = 'v1';
+const dynamicCacheName = 'd1';
 
 const cachedFiles = [
     './',
@@ -16,7 +16,17 @@ self.addEventListener('install', event => {
         return cache.addAll(cachedFiles);
       })
     );
+    self.skipWaiting();
 });
+
+var refreshing;
+navigator.serviceWorker.addEventListener('controllerchange',
+  function() {
+    if (refreshing) return;
+    refreshing = true;
+    window.location.reload();
+  }
+);
   
 // Activate event - Clean old caches
 self.addEventListener('activate', event => {
