@@ -212,13 +212,9 @@
                 console.log('Service Worker registration failed:', error);
             });
     }
-    try{
-      const fileHandle = await opfsRoot.getFileHandle("my first file", {
-                            create: true,
-                            });
+    opfsRoot.getFileHandle("my first file", {create: true,}).then(function(fileHandle) {
       window.sessionStorage.removeItem("computeLiteReloaded");
-    }
-    catch{
+    }).catch(function() {
       const reloadedBySelf = window.sessionStorage.getItem("coiReloadedBySelf");
       if(reloadedBySelf){
       }
@@ -226,7 +222,7 @@
         window.sessionStorage.setItem("computeLiteReloaded", "true");
         window.location.reload();
       }
-    }
+    });
 </script>
 
 
