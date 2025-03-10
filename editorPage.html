@@ -204,38 +204,22 @@
     </div>
   </div>
   <script>
-    async function createTextFileOPFS(filename = "hello.txt") {
-            // Get the root OPFS directory
-            const root = await navigator.storage.getDirectory();
-
-            // Create a new file in OPFS
-            const fileHandle = await root.getFileHandle(filename, { create: true });
-
-            // Create a writable stream
-            const writable = await fileHandle.createWritable();
-
-            // Write "Hello World" to the file
-            await writable.write("Hello World");
-
-            // Close the writable stream
-            await writable.close();
-
-      }
-
-    createTextFileOPFS().then(() => {
-      console.log("OPFS Already Set");
-    }).catch((error) => {
+    if (typeof SharedArrayBuffer === "undefined") {
+      console.log("SharedArrayBuffer not supported");
       const reloadedBySelf = window.sessionStorage.getItem("coiReloadedBySelf");
       if(reloadedBySelf){
-        console.log("Cannot set OPFS, even after reload");
+        console.log("Cannot support SharedArrayBuffer, even after reload");
       }
       else{
-        console.log("OPFS not set, reloading...");
+        console.log("SharedArrayBuffer not supported, reloading...");
         window.sessionStorage.setItem("computeLiteReloaded", "true");
         window.location.reload();
       }
-    });
-
+    } else{
+      window.sessionStorage.removeItem("computeLiteReloaded");
+      console.log("SharedArrayBuffer supported, no reload");
+    }
+    
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js', {updateViaCache: 'none'})
             .then(function(registration) {
