@@ -1,5 +1,5 @@
-const cacheName = 'v1';
-const dynamicCacheName = 'd1';
+const cacheName = 'v3';
+const dynamicCacheName = 'd3';
 
 const cachedFiles = [
     './',
