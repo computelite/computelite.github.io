@@ -1,9 +1,9 @@
-const cacheName = 'v9';
-const dynamicCacheName = 'd9';
+const cacheName = 'v00';
+const dynamicCacheName = 'd00';
 
 const cachedFiles = [
     './',
-    // './homePage.html',
+    './homePage.html',
     './privacyPolicy.html',
     './sqlEditor.html',
     './tableDisplay.html'
@@ -16,13 +16,11 @@ self.addEventListener('install', event => {
         return cache.addAll(cachedFiles);
       })
     );
-    self.skipWaiting();
 });
-
   
 // Activate event - Clean old caches
 self.addEventListener('activate', event => {
-    const cacheWhitelist = [cacheName];
+    const cacheWhitelist = [cacheName, dynamicCacheName];
     event.waitUntil(
       Promise.all([
       self.clients.claim(),
@@ -62,6 +60,9 @@ self.addEventListener('fetch', event => {
             });
         }
         return fetch(event.request).then(networkResponse => {
+          if (event.request.url.endsWith('.json')) {
+            return networkResponse; // Do not cache JSON
+          }
             return caches.open(dynamicCacheName).then(cache => {
                 if (event.request.method === "GET" && event.request.url.indexOf('https') === 0 && 
                 event.request.url.indexOf(hostDomain) > -1){
