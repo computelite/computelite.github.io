@@ -1,9 +1,9 @@
-const cacheName = 'v4';
-const dynamicCacheName = 'd4';
+const cacheName = 'v7';
+const dynamicCacheName = 'd7';
 
 const cachedFiles = [
     './',
-    './homePage.html',
+    // './homePage.html',
     './privacyPolicy.html',
     './sqlEditor.html',
     './tableDisplay.html'
