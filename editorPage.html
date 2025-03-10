@@ -34,7 +34,10 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
 
-
+
+
+
+
   <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
   <script type="module" crossorigin src="./assets/editor.CVWyqZqh.js"></script>
@@ -209,7 +212,20 @@
                 console.log('Service Worker registration failed:', error);
             });
     }
-</script>
+    opfsRoot.getFileHandle("my first file", {create: true,}).then(function(fileHandle) {
+      window.sessionStorage.removeItem("computeLiteReloaded");
+    }).catch(function() {
+      const reloadedBySelf = window.sessionStorage.getItem("coiReloadedBySelf");
+      if(reloadedBySelf){
+      }
+      else{
+        window.sessionStorage.setItem("computeLiteReloaded", "true");
+        window.location.reload();
+      }
+    });
+</script>
+
+
 
 </body>
 
