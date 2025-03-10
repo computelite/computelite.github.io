@@ -204,17 +204,26 @@
     </div>
   </div>
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./sw.js', {updateViaCache: 'none'})
-            .then(function(registration) {
-                console.log('Service Worker registered with scope:', registration.scope);
-            }).catch(function(error) {
-                console.log('Service Worker registration failed:', error);
-            });
-    }
-    opfsRoot.getFileHandle("my first file", {create: true,}).then(function(fileHandle) {
-      window.sessionStorage.removeItem("computeLiteReloaded");
-    }).catch(function() {
+    async function createTextFileOPFS(filename = "hello.txt") {
+            // Get the root OPFS directory
+            const root = await navigator.storage.getDirectory();
+
+            // Create a new file in OPFS
+            const fileHandle = await root.getFileHandle(filename, { create: true });
+
+            // Create a writable stream
+            const writable = await fileHandle.createWritable();
+
+            // Write "Hello World" to the file
+            await writable.write("Hello World");
+
+            // Close the writable stream
+            await writable.close();
+
+      }
+
+    createTextFileOPFS().then(() => {
+    }).catch((error) => {
       const reloadedBySelf = window.sessionStorage.getItem("coiReloadedBySelf");
       if(reloadedBySelf){
       }
@@ -223,6 +232,16 @@
         window.location.reload();
       }
     });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js', {updateViaCache: 'none'})
+            .then(function(registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('Service Worker registration failed:', error);
+            });
+    }
+
 </script>
 
 
