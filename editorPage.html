@@ -223,11 +223,14 @@
       }
 
     createTextFileOPFS().then(() => {
+      console.log("OPFS Already Set");
     }).catch((error) => {
       const reloadedBySelf = window.sessionStorage.getItem("coiReloadedBySelf");
       if(reloadedBySelf){
+        console.log("Cannot set OPFS, even after reload");
       }
       else{
+        console.log("OPFS not set, reloading...");
         window.sessionStorage.setItem("computeLiteReloaded", "true");
         window.location.reload();
       }
