@@ -1,27 +1,14 @@
-const cacheName = 'v02';
 const dynamicCacheName = 'd02';
 
-const cachedFiles = [
-    './',
-    './homePage.html',
-    './privacyPolicy.html',
-    './sqlEditor.html',
-    './tableDisplay.html'
-];
   
 // Install event - Cache files
 self.addEventListener('install', event => {
     self.skipWaiting();
-    event.waitUntil(
-      caches.open(cacheName).then(cache => {
-        return cache.addAll(cachedFiles);
-      })
-    );
 });
   
 // Activate event - Clean old caches
 self.addEventListener('activate', event => {
-    const cacheWhitelist = [cacheName, dynamicCacheName];
+    const cacheWhitelist = [dynamicCacheName];
     event.waitUntil(
       Promise.all([
       self.clients.claim(),
