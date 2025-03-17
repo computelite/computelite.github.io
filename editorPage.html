@@ -34,19 +34,16 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
 
-
-
-
-
+
   <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
-  <script type="module" crossorigin src="./assets/editor.CVWyqZqh.js"></script>
+  <script type="module" crossorigin src="./assets/editor.CfWU8QDU.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/pixel.PHV1U_RE.js">
   <link rel="modulepreload" crossorigin href="./assets/codemirror.BeiFTLV5.js">
   <link rel="modulepreload" crossorigin href="./assets/python.CRxt_0kd.js">
-  <link rel="modulepreload" crossorigin href="./assets/scc.CmJHLMP8.js">
+  <link rel="modulepreload" crossorigin href="./assets/scc.BBhk-k_m.js">
   <link rel="modulepreload" crossorigin href="./assets/bootstrap.esm.CkDf0L-y.js">
-  <link rel="modulepreload" crossorigin href="./assets/jszip.min.Cz8E26WE.js">
+  <link rel="modulepreload" crossorigin href="./assets/jszip.min.8KxMojKb.js">
   <link rel="stylesheet" crossorigin href="./assets/pixel.D2isS4xr.css">
   <link rel="stylesheet" crossorigin href="./assets/codemirror.BglBigAQ.css">
   <link rel="stylesheet" crossorigin href="./assets/editor.Cfaio07d.css">
@@ -204,22 +201,6 @@
     </div>
   </div>
   <script>
-    if (typeof SharedArrayBuffer === "undefined") {
-      console.log("SharedArrayBuffer not supported");
-      const reloadedBySelf = window.sessionStorage.getItem("coiReloadedBySelf");
-      if(reloadedBySelf){
-        console.log("Cannot support SharedArrayBuffer, even after reload");
-      }
-      else{
-        console.log("SharedArrayBuffer not supported, reloading...");
-        window.sessionStorage.setItem("computeLiteReloaded", "true");
-        window.location.reload();
-      }
-    } else{
-      window.sessionStorage.removeItem("computeLiteReloaded");
-      console.log("SharedArrayBuffer supported, no reload");
-    }
-    
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js', {updateViaCache: 'none'})
             .then(function(registration) {
@@ -228,10 +209,7 @@
                 console.log('Service Worker registration failed:', error);
             });
     }
-
-</script>
-
-
+</script>
 
 </body>
 

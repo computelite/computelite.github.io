@@ -42,11 +42,11 @@
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
-  <script type="module" crossorigin src="./assets/home.DmWiogh_.js"></script>
+  <script type="module" crossorigin src="./assets/home.B9C2psld.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/pixel.PHV1U_RE.js">
-  <link rel="modulepreload" crossorigin href="./assets/scc.CmJHLMP8.js">
+  <link rel="modulepreload" crossorigin href="./assets/scc.BBhk-kom.js">
   <link rel="modulepreload" crossorigin href="./assets/bootstrap.esm.CkDf0L-y.js">
-  <link rel="modulepreload" crossorigin href="./assets/jszip.min.Cz8E26WE.js">
+  <link rel="modulepreload" crossorigin href="./assets/jszip.min.8KxMojKb.js">
   <link rel="stylesheet" crossorigin href="./assets/pixel.D2isS4xr.css">
   <link rel="stylesheet" crossorigin href="./assets/home.BCDOp-mO.css">
 </head>
@@ -467,7 +467,21 @@
                 console.log('Service Worker registration failed:', error);
             });
     }
-    console.log('Hello..06')
+    if (typeof SharedArrayBuffer === "undefined") {
+      console.log("SharedArrayBuffer not supported");
+      const reloadedBySelf = window.sessionStorage.getItem("coiReloadedBySelf");
+      if(reloadedBySelf){
+        console.log("Cannot support SharedArrayBuffer, even after reload");
+      }
+      else{
+        console.log("SharedArrayBuffer not supported, reloading...");
+        window.sessionStorage.setItem("computeLiteReloaded", "true");
+        window.location.reload();
+      }
+    } else{
+      window.sessionStorage.removeItem("computeLiteReloaded");
+      console.log("SharedArrayBuffer supported, no reload");
+    }
 </script>
 
 
