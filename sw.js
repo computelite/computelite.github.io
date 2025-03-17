@@ -1,4 +1,4 @@
-const dynamicCacheName = 'd09';
+const dynamicCacheName = 'd00';
 
   
 // Install event - Cache files
