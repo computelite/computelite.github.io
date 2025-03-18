@@ -36,7 +36,10 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
-   
+   
+
+
+
     
   <script type="module" crossorigin src="./assets/pixel.PHV1U_RE.js"></script>
   <script type="module" crossorigin src="./assets/bootstrap.esm.CkDf0L-y.js"></script>
@@ -288,16 +291,9 @@
             </div>
         </div>
     </footer>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js', {updateViaCache: 'none'})
-                .then(function(registration) {
-                    console.log('Service Worker registered with scope:', registration.scope);
-                }).catch(function(error) {
-                    console.log('Service Worker registration failed:', error);
-                });
-        }
-    </script>
+    <script src="./coi-serviceworker.js"></script>
+
+
 </body>
 
 </html>
