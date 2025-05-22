@@ -37,13 +37,13 @@
 
   <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
-  <script type="module" crossorigin src="./assets/editor.CDCWQSdn.js"></script>
+  <script type="module" crossorigin src="./assets/editor.DDyeE8y6.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/pixel.CyAMObzi.js">
-  <link rel="modulepreload" crossorigin href="./assets/codemirror.DN0ZcZMw.js">
-  <link rel="modulepreload" crossorigin href="./assets/python.Dio3IyR1.js">
-  <link rel="modulepreload" crossorigin href="./assets/scc.2HUkD3uG.js">
-  <link rel="modulepreload" crossorigin href="./assets/bootstrap.esm.CkDf0L-y.js">
-  <link rel="modulepreload" crossorigin href="./assets/jszip.min.8QVpRVYq.js">
+  <link rel="modulepreload" crossorigin href="./assets/codemirror.i0qkzkfX.js">
+  <link rel="modulepreload" crossorigin href="./assets/python.CZbrtjhd.js">
+  <link rel="modulepreload" crossorigin href="./assets/scc.C0KxU-5h.js">
+  <link rel="modulepreload" crossorigin href="./assets/bootstrap.esm.BAnKzilB.js">
+  <link rel="modulepreload" crossorigin href="./assets/jszip.min.Dy8ZLiAd.js">
   <link rel="stylesheet" crossorigin href="./assets/pixel.Bojr-KKM.css">
   <link rel="stylesheet" crossorigin href="./assets/codemirror.BglBigAQ.css">
   <link rel="stylesheet" crossorigin href="./assets/editor.BKyKXeWW.css">
@@ -97,10 +97,10 @@
             <div class="float-end">
               <span title="Upload Zip" class="fa-solid fa-file-arrow-up pe-2" data-bs-target="#modal-file-upload"
                 data-bs-toggle="modal"></span>
-              <span title="Download Zip" class="fa-solid fa-file-arrow-down pe-2" id="downloadZip"></span>
-              <span id="addFolder" class="fa-solid fa-folder-plus pe-2"></span>
-              <span id="addFile" class="fa-solid fa-file-circle-plus pe-2"></span>
-              <span id="deleteFile" class="fa fa-trash pe-2"></span>
+              <span title="Download Zip" class="fa-solid fa-file-arrow-down pe-2" id="downloadZip" role="button"></span>
+              <span title="Add Folder" id="addFolder" class="fa-solid fa-folder-plus pe-2" role="button"></span>
+              <span title="Add File" id="addFile" class="fa-solid fa-file-circle-plus pe-2" role="button"></span>
+              <span title="Delete File" id="deleteFile" class="fa fa-trash pe-2" role="button"></span>
             </div>
             <div class="sidebar-inner py-4">
               <div id="filesDiv" class="px-2">
@@ -125,7 +125,7 @@
                 </div>
               </div>
               <div id="bottomButtons">
-                <span id="getText" class="fa-solid fa-play bottom-run-button" title="Run"></span>
+                <span id="getText" class="fa-solid fa-play bottom-run-button" title="Run" role="button"></span>
                 <!-- <span id="addToHome" class="fas fa-house bottom-home-button" title="Add To Homepage"></span> -->
               </div>
               <textarea name="any" id="editorText">
